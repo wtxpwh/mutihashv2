@@ -70,7 +70,7 @@ NAN_METHOD(argon2ddyn) {
 
     uint32_t input_len = Buffer::Length(target);
 
-    argon2d_dyn_hash(input, output);
+    argon2d_dyn_hash(input, output, input_len);
 
     info.GetReturnValue().Set(Nan::NewBuffer(output, 32).ToLocalChecked());
 } 
