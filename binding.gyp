@@ -7,6 +7,7 @@
                 "bcrypt.c",
                 "blake.c",
                 "boolberry.cc",
+                "argon2d-dyn.c",
                 "c11.c",
                 "cryptonight.c",
                 "dcrypt.c",
