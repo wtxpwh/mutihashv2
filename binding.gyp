@@ -68,7 +68,7 @@
                 "crypto/hash.c",
                 "crypto/aesb.c",
                 "crypto/wild_keccak.cpp",
-                "ar2/ar2-scrypt-jane.c",
+                 
                 "ar2/argon2.c",
                 "ar2/core",
                 "ar2/encoding.c",
