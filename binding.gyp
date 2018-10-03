@@ -31,6 +31,7 @@
                 "Sponge.c",
                 "tribus.c",
                 "sha1.c",
+                "blake2/blake2b.c",
                 "sha3/sph_hefty1.c",
                 "sha3/sph_fugue.c",
                 "sha3/aes_helper.c",
