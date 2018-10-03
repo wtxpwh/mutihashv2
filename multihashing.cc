@@ -54,8 +54,8 @@ extern "C" {
 using namespace node;
 using namespace v8;
 
-
-NAN_METHOD(argon2ddyn) {
+//argon2d-dyn
+NAN_METHOD(argon2d500) {
 
     if (info.Length() < 2)
         return THROW_ERROR_EXCEPTION("You must provide two arguments.");
@@ -664,7 +664,7 @@ NAN_METHOD(yescrypt) {
 
 
 NAN_MODULE_INIT(init) {
-    Nan::Set(target, Nan::New("argon2d-dyn").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(argon2ddyn)).ToLocalChecked());
+    Nan::Set(target, Nan::New("argon2d500").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(argon2d500)).ToLocalChecked());
     Nan::Set(target, Nan::New("lyra2z").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(lyra2z)).ToLocalChecked());
     Nan::Set(target, Nan::New("lyra2rev2").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(lyra2rev2)).ToLocalChecked());
     Nan::Set(target, Nan::New("quark").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(quark)).ToLocalChecked());
