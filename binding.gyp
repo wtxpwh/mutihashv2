@@ -70,7 +70,7 @@
                 "crypto/wild_keccak.cpp",
                  
                 "ar2/argon2.c",
-                "ar2/core",
+                "ar2/core.c",
                 "ar2/encoding.c",
                 "ar2/opt.c",
                 "ar2/thread.c",
