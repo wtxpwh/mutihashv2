@@ -28,6 +28,8 @@
                 "scryptn.c",
                 "shavite3.c",
                 "skein.c",
+                "skunk.c",
+                "gost.c",
                 "Sponge.c",
                 "tribus.c",
                 "sha1.c",

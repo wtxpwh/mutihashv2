@@ -32,6 +32,7 @@ extern "C" {
     #include "sha1.h"
     #include "shavite3.h"
     #include "skein.h"
+    #include "skunk.h"
     #include "Sponge.h"
     #include "tribus.h"
     #include "whirlpoolx.h"
@@ -376,6 +377,27 @@ NAN_METHOD(keccak) {
     info.GetReturnValue().Set(Nan::NewBuffer(output, 32).ToLocalChecked());
 }
 
+NAN_METHOD(skunk) {
+
+    if (info.Length() < 2)
+        return THROW_ERROR_EXCEPTION("You must provide two arguments.");
+
+    Local<Object> target = Nan::To<Object>(info[0]).ToLocalChecked();
+
+    if(!Buffer::HasInstance(target))
+        return THROW_ERROR_EXCEPTION("Argument should be a buffer object.");
+
+    char * input = Buffer::Data(target);
+    char *output = (char*) malloc(sizeof(char) * 32);
+
+    uint32_t input_len = Buffer::Length(target);
+
+    skunk_hash(input, output,input_len);
+
+    info.GetReturnValue().Set(Nan::NewBuffer(output, 32).ToLocalChecked());
+}
+
+
 NAN_METHOD(skein) {
 
     if (info.Length() < 1)
@@ -701,6 +723,7 @@ NAN_MODULE_INIT(init) {
     Nan::Set(target, Nan::New("keccak").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(keccak)).ToLocalChecked());
     Nan::Set(target, Nan::New("bcrypt").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(bcrypt)).ToLocalChecked());
     Nan::Set(target, Nan::New("skein").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(skein)).ToLocalChecked());
+    Nan::Set(target, Nan::New("skunk").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(skunk)).ToLocalChecked());
     Nan::Set(target, Nan::New("groestl").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(groestl)).ToLocalChecked());
     Nan::Set(target, Nan::New("groestlmyriad").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(groestlmyriad)).ToLocalChecked());
     Nan::Set(target, Nan::New("blake").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(blake)).ToLocalChecked());
