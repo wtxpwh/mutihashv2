@@ -215,10 +215,21 @@ NAN_METHOD(boolberry) {
 
     if(!Buffer::HasInstance(target_spad))
         return THROW_ERROR_EXCEPTION("Argument 2 should be a buffer object.");
-
+/*
     if(info.Length() >= 3) {
         if(info[2]->IsUint32()) {
             height = info[2]->ToUint32()->Uint32Value(); // TODO: This does not like Nan::To<uint32_t>(), the current way is deprecated
+        } else {
+            return THROW_ERROR_EXCEPTION("Argument 3 should be an unsigned integer.");
+        }
+    }
+*/
+
+    if(info.Length() >= 3) {
+       Local<Object> len = Nan::To<Object>(info[2]).ToLocalChecked();
+        if(len->IsUint32()) {
+            height = Nan::To<uint32_t>(len).ToChecked();
+            //height = info[2]->ToUint32()->Uint32Value(); // TODO: This does not like Nan::To<uint32_t>(), the current way is deprecated
         } else {
             return THROW_ERROR_EXCEPTION("Argument 3 should be an unsigned integer.");
         }
