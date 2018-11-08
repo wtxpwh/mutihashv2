@@ -8,6 +8,8 @@ extern "C" {
 #include <stdint.h>
 
 void blake_hash(const char* input, char* output, uint32_t len);
+void blake2b_hash(const char* input, char* output, uint32_t len);
+void blake2s_hash(const char* input, char* output, uint32_t len);
 
 #ifdef __cplusplus
 }

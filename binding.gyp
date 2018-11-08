@@ -34,6 +34,7 @@
                 "tribus.c",
                 "sha1.c",
                 "blake2/blake2b.c",
+                "blake2/blake2s.c",
                 "sha3/sph_hefty1.c",
                 "sha3/sph_fugue.c",
                 "sha3/aes_helper.c",
@@ -65,6 +66,7 @@
 		        "x16r.c",
                 "x17.c",
                 "zr5.c",
+                "s3.c",
                 "crypto/oaes_lib.c",
                 "crypto/c_keccak.c",
                 "crypto/c_groestl.c",
@@ -74,7 +76,7 @@
                 "crypto/hash.c",
                 "crypto/aesb.c",
                 "crypto/wild_keccak.cpp",
-                 
+                
                 "ar2/argon2.c",
                 "ar2/core.c",
                 "ar2/encoding.c",
